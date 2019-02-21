@@ -1,0 +1,48 @@
+<h1>Stop Here! Spoilers ahead!</h1>
+
+<h2>Step 1: B4by Gu355iNg M4chin3</h2>
+
+<p>At first glance, it looks like an alpha-numeric cipher lock. However, most of the letters are missing.. When the wheel stops, the resulting cipher (highlighted in red) looks like it might be encoded in hexadecimal notation. 
+</p>
+<img width="640"  src="images/babywheel.PNG" alt="Baby Wheel">
+
+<p>
+  After converting the hex encoded string <strong>495453204120524f424f5421</strong> 
+  to ASCII, the result is <strong>ITS A ROBOT!</strong>
+  
+</p>
+
+<h2>Step 2: Where do Robots live on the web?</h2>
+
+<p>Websites often host files they do not wish to be indexed by major search engine pr
+oviders.  To accomodate, the robots exclusion standard, or robots.txt, is used to omit sensitive pages or data from web crawlers and other web robots.   
+</p>
+
+<p>The standard requires a simple text file to be located at http://{site root}.com/robots.txt.  The <a href="http://babyreveal.evilbotnet.com/robots.txt">robots.txt</a> file on this site reveals a hidden file <strong><a href="http://babyreveal.evilbotnet.com/supersecretfilenobodywilleverlookat.html"> /supersecretfilenobodywilleverlookat.html</a> </strong>. 
+</p>
+<img width="320"  src="images/robots.PNG" alt="Robots.txt">
+
+
+<h2>Step 3: Reconstructing the Evidence</h2>
+
+<p>The Hidd3n P4g3 contains a link to a broken <a href="http://babyreveal.evilbotnet.com/babyborked.jpg">file</a>. It can be assumed that because of the file's extension, it is supposed to be a JPEG image.  However, it doesn't seem to open in any image viewing applications.  Upon closer inspection, it appears to be missing the first 8-bytes of the JPEG header.  These header bytes tell the operating system and applications how to properly handle the data within a particular file.  In the case of this file they are <strong>00 00 00 00</strong> but the JPEG header should start with <strong> FF D8 FF E0</strong>.
+</p>
+<img width="320"  src="images/brokehex.PNG" alt="Broken Hex header">
+<img width="320"  src="images/fixedhex.png" alt="Fixed Hex header">
+
+<p>Using a hex editor like hexedit on linux, the file can be modified to fix the broken header and the image file can be opened normally.   
+</p>
+
+<h2>Step 4: Hidden in Plain Site</h2>
+
+<p>The last step is to decrypt the flag that is imposed on the image from Step 3. When dealing with special characters in scripting or web applications, websites can encode filenames or user-input using base64 or web encoding.  By encoding the text, it eliminates the need to worry about special characters which may break other parts of an application.  In this case, the base64 encoded flag <strong>aVQncyA0IEcxckwh</strong> can be decoded into <strong>iT's 4 G1rL!</strong>  
+</p>
+<img width="640"  src="images/babygirl.jpg" alt="Baby Picture">
+
+
+
+<p>
+  <a href="http://evilbotnet.com">evilbotnet</a>
+</p>
+
+
